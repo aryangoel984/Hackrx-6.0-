@@ -160,7 +160,7 @@ app.post('/api/v1/hackrx/run', async (req, res) => {
   try {
     // 1. Validate authorization token
     const authHeader = req.headers.authorization;
-    const expectedToken = 'Bearer cbbaa6f645bff09be12ac98288e7bf234ab6586542b389b2bb1e9a8bd131a117';
+    const expectedToken = process.env.AUTH_TOKEN;
     
     if (!authHeader || authHeader !== expectedToken) {
       return res.status(401).json({
